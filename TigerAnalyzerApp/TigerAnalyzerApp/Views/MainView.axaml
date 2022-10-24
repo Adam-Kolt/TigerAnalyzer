@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:TigerAnalyzerApp.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="350"
+             x:Class="TigerAnalyzerApp.Views.MainView"
+             Foreground="White"
+             Background="#FFFFFF">
+    <UserControl.Styles>
+        <Style Selector="Button.DataSelector">
+            <Setter Property="FontFamily" Value="../Assets/Fonts/BIOWEAPON/#BIOWEAPON"></Setter>
+            <Setter Property="CornerRadius" Value="0"></Setter>
+            <Setter Property="Background" Value="#000000"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+        <Style Selector="Button.DataSelector:pointerover /template/ ContentPresenter">
+            <Setter Property="Button.Foreground" Value="#f26422"></Setter>
+            <Setter Property="Button.Background" Value="#2222"></Setter>
+            <Setter Property="Cursor" Value="Hand"></Setter>
+        </Style>
+    </UserControl.Styles>
+    <Design.DataContext>
+    <viewModels:MainViewModel />
+  </Design.DataContext>
+    <StackPanel VerticalAlignment="Center" Spacing="10">
+        
+        
+        <TextBlock FontFamily="../Assets/Fonts/BIOWEAPON/#BIOWEAPON" FontWeight="Black" Foreground="#f26422" FontSize="50" HorizontalAlignment="Center">Tiger</TextBlock>
+        <TextBlock FontFamily="../Assets/Fonts/BIOWEAPON/#BIOWEAPON" FontWeight="Black" Foreground="Black" FontSize="25" HorizontalAlignment="Center">Analyzer</TextBlock>
+        <Button Classes="DataSelector" Width="100" Margin="0 20 0 0" HorizontalAlignment="Center" Command="{Binding DataButton_Clicked}" CommandParameter="{Binding $parent[Window]}" Content="{Binding DataButtonLabel}"></Button>
+        <Button Classes="DataSelector" Width="100" Margin="0" HorizontalAlignment="Center" Command="{Binding EnterButton_Clicked}" CommandParameter="{Binding $parent[Window]}">LETS GO</Button>
+    </StackPanel>
+</UserControl>
