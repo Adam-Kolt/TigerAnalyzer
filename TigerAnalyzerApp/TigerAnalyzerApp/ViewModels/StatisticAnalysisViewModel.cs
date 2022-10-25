@@ -23,7 +23,7 @@ namespace TigerAnalyzerApp.ViewModels;
 
 public class StatisticAnalysisViewModel
 {
-    public IEnumerable<ScoutEntry>? ScoutData;
+    public List<dynamic>? ScoutData;
     public Dictionary<int, List<ScoutEntry>>? TeamData;
     public List<RobotTeam> Teams;
 
@@ -174,7 +174,7 @@ public class StatisticAnalysisViewModel
 
     
    
-    private static IEnumerable<ScoutEntry> GetScoutData(string path)
+    private static List<dynamic> GetScoutData(string path)
     {
         var configuration = new CsvConfiguration(CultureInfo.InvariantCulture)
         {
@@ -190,9 +190,10 @@ public class StatisticAnalysisViewModel
         CsvReader csv = new CsvReader(textReader, configuration);
         csv.Context.TypeConverterOptionsCache.GetOptions<string>().NullValues.Add("NaN");
         csv.Context.TypeConverterOptionsCache.GetOptions<double>().NullValues.Add("NaN");
+
         
-        IEnumerable<ScoutEntry> data = csv.GetRecords<ScoutEntry>().ToList();
-        return data;
+        
+        return csv.GetRecords<dynamic>().ToList();
     
     }
 
@@ -272,36 +273,14 @@ public class StatisticAnalysisViewModel
         if (dataPath != null)
         {
             ScoutData = GetScoutData(dataPath);
-            TeamData = PackageTeamsTogether(ScoutData);
-            Teams = GenerateTeams(TeamData);
 
-            foreach (var robotTeam in Teams)
-            {
-                var radialData = new PolarLineSeries<int>();
-                
-                List<int> radialValues = new List<int>();
-                foreach (var teamProperty in typeof(RobotTeam).GetProperties())
-                {
-                    if (teamProperty.PropertyType != typeof(double)) continue;
-                    // DONT FORGET: DELETE THIS IF...JUST TEMP FOR PRESENTATION
-                    if ((double) teamProperty.GetValue(robotTeam) < 5 && (double) teamProperty.GetValue(robotTeam) > 0)
-                    {
-                        radialValues.Add((int) Math.Round((double) teamProperty.GetValue(robotTeam) * 10));
-                    }
-                }
 
-                radialData.Values = radialValues.ToArray();
-                radialData.LineSmoothness = 1;
-                radialData.GeometrySize = 0;
-                radialData.Name = robotTeam.TeamNumber.ToString();
-                
-
-                RadialSeries.Add(radialData);
-            }
+             
+            
 
         }
     }
     public ObservableCollection<ISeries> RadialSeries { get; set; } = new ObservableCollection<ISeries>();
-    
-    
+
+
 }
