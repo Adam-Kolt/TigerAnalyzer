@@ -19,7 +19,7 @@
         <Style Selector="TextBlock">
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Foreground" Value="#123"></Setter>
-            <Setter Property="FontFamily" Value="../Assets/Fonts/degheest-types-master/fonts/ttf/Basalte-Fond.ttf#Basalte"></Setter>
+            <!--<Setter Property="FontFamily" Value="../Assets/Fonts/degheest-types-master/fonts/ttf/Basalte-Fond.ttf#Basalte"></Setter>-->
             
         </Style>
         <Style Selector="TabItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
