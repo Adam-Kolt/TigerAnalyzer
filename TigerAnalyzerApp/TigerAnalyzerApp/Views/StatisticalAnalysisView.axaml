@@ -6,10 +6,69 @@
              Width="600" Height="400"
              Background="#FFFFFF"
              x:Class="TigerAnalyzerApp.Views.StatisticalAnalysisView"
-             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia">
-        <StackPanel VerticalAlignment="Center">
-            <!--TODO: Make LIVE CHARTS WORK  BASED ON CSV FILE PLZ-->
-            <Panel Width="300" Height="300"><lvc:PolarChart Series="{Binding RadialSeries}"></lvc:PolarChart></Panel>
+             xmlns:statisticalAnalysisViews="clr-namespace:TigerAnalyzerApp.Views.StatisticalAnalysisViews">
+    <UserControl.Styles>
+        <Style Selector="TabControl">
+            <Setter Property="Background" Value="#FFFFFF"></Setter>
+        </Style>
+        <Style Selector="TabControl WrapPanel">
+            <Setter Property="Background" Value="#F90"/>
+            <Setter Property="Margin" Value="0 0 0 0"/>
+            
+        </Style>
+        <Style Selector="TextBlock">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Foreground" Value="#123"></Setter>
+            <Setter Property="FontFamily" Value="../Assets/Fonts/degheest-types-master/fonts/ttf/Basalte-Fond.ttf#Basalte"></Setter>
+            
+        </Style>
+        <Style Selector="TabItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Cursor" Value="Hand"></Setter>
+            <Setter Property="Background" Value="#FFFFFF"></Setter>
+            <Setter Property="Height" Value="48"></Setter>
+        </Style>
+        <Style Selector="TabItem">
+            <Setter Property="Background" Value="#F90"></Setter>
+            <Setter Property="Padding" Value="0 0 0 0"></Setter>
+            
 
-        </StackPanel>
+            
+        </Style>
+        <Style Selector="TabItem:selected">
+            <Setter Property="Background" Value="#FFFFFF"></Setter>
+            <Setter Property="Foreground" Value="#FFFF"></Setter>
+        </Style>
+        
+        <Style Selector="TabItem TextBlock">
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="10 0 0 0"></Setter>
+            
+        </Style>
+        
+        
+
+   
+    </UserControl.Styles>
+    <TabControl TabStripPlacement="Right" >
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock VerticalAlignment="Center">Graphs</TextBlock>
+                </TabItem.Header>
+                <statisticalAnalysisViews:GraphsView/>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock VerticalAlignment="Center">Ranking</TextBlock>
+                </TabItem.Header>
+  
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock VerticalAlignment="Center">Export</TextBlock>
+                </TabItem.Header>
+  
+            </TabItem>
+        </TabControl>
+    
 </UserControl>

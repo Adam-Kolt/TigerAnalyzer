@@ -9,6 +9,7 @@
              Background="#FFFFFF">
     <UserControl.Styles>
         <Style Selector="Button.DataSelector">
+            <Setter Property="Foreground" Value="#FFFFFF"></Setter>
             <Setter Property="FontFamily" Value="../Assets/Fonts/BIOWEAPON/#BIOWEAPON"></Setter>
             <Setter Property="CornerRadius" Value="0"></Setter>
             <Setter Property="Background" Value="#000000"></Setter>
