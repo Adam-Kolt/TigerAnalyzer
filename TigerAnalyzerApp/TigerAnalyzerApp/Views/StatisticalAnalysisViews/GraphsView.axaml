@@ -3,7 +3,39 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:avalonia="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
              x:Class="TigerAnalyzerApp.Views.StatisticalAnalysisViews.GraphsView">
-    <Panel Width="300" Height="300"><avalonia:PolarChart Series="{Binding RadialSeries}"></avalonia:PolarChart></Panel>
+    <UserControl.Styles>
+        <Style Selector="TextBlock">
+            <Setter Property="FontFamily" Value="../../Assets/Fonts/degheest-types-master/fonts/ttf/Basalte-Fond.ttf#Basalte"></Setter>
+        </Style>
+        <Style Selector="Panel.TeamSelector, StackPanel.TeamSelector">
+            <Setter Property="Background" Value="#F90"></Setter>
+        </Style>
+        <Style Selector="StackPanel CheckBox">
+            <Setter Property="Margin" Value="10 5 10 3"></Setter>
+            <Setter Property="Background" Value="#FA3"></Setter>
+            <Setter Property="Width" Value="105"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        </Style>
+        <Style Selector="StackPanel CheckBox Grid">
+            <Setter Property="ShowGridLines" Value="True"></Setter>
+        </Style>
+    </UserControl.Styles>
+    
+    <Grid ColumnDefinitions="125,200,*" RowDefinitions="50,200,*" ShowGridLines="True">
+        <Panel Height="50" Classes="TeamSelector" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+            <TextBlock VerticalAlignment="Center" TextAlignment="Center" FontSize="24">Teams</TextBlock>
+        </Panel>
+        <StackPanel Classes="TeamSelector" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2">
+            <CheckBox><TextBlock TextAlignment="Center">5010</TextBlock></CheckBox>
+            <CheckBox><TextBlock>5010</TextBlock></CheckBox>
+            <CheckBox><TextBlock>5010</TextBlock></CheckBox>
+        </StackPanel>
+        
+        <Panel Grid.Row="1" Grid.Column="1">
+            <avalonia:PolarChart Series="{Binding RadialSeries}"></avalonia:PolarChart>
+        </Panel>
+    </Grid>
+    
 </UserControl>

@@ -2,8 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
-             Width="600" Height="400"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             Width="800" Height="450"
              Background="#FFFFFF"
              x:Class="TigerAnalyzerApp.Views.StatisticalAnalysisView"
              xmlns:statisticalAnalysisViews="clr-namespace:TigerAnalyzerApp.Views.StatisticalAnalysisViews">
@@ -13,8 +13,6 @@
         </Style>
         <Style Selector="TabControl WrapPanel">
             <Setter Property="Background" Value="#F90"/>
-            <Setter Property="Margin" Value="0 0 0 0"/>
-            
         </Style>
         <Style Selector="TextBlock">
             <Setter Property="FontSize" Value="20"></Setter>
@@ -24,27 +22,37 @@
         </Style>
         <Style Selector="TabItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Cursor" Value="Hand"></Setter>
+        </Style>
+        
+        <Style Selector="TabItem /template/ Border#PART_SelectedPipe">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+        
+        <Style Selector="TabItem:pointerover /template/ Border#PART_LayoutRoot">
             <Setter Property="Background" Value="#FFFFFF"></Setter>
-            <Setter Property="Height" Value="48"></Setter>
         </Style>
+        
         <Style Selector="TabItem">
-            <Setter Property="Background" Value="#F90"></Setter>
-            <Setter Property="Padding" Value="0 0 0 0"></Setter>
-            
 
-            
+            <Setter Property="Background" Value="#F90"></Setter>
+            <Setter Property="BorderBrush" Value="#F90"></Setter>
+            <Setter Property="BorderThickness" Value="3"></Setter>
+            <Setter Property="Transitions">
+                <Transitions>
+                </Transitions>
+            </Setter>
         </Style>
+
+        
         <Style Selector="TabItem:selected">
             <Setter Property="Background" Value="#FFFFFF"></Setter>
             <Setter Property="Foreground" Value="#FFFF"></Setter>
         </Style>
         
         <Style Selector="TabItem TextBlock">
-            <Setter Property="Width" Value="100"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="Margin" Value="10 0 0 0"></Setter>
-            
         </Style>
+
         
         
 
