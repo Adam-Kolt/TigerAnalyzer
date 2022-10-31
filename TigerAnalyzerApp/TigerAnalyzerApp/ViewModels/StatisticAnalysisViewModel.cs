@@ -34,41 +34,41 @@ public class StatisticAnalysisViewModel
 
         public int TeamNumber { get; set; }
 
-        public double AutoAccuracy { get; set; } = 0;
-        public double AutoLowerAccuracy { get; set; } = 0;
-        public double AutoUpperAccuracy { get; set; } = 0;
+        public double AutoAccuracy { get; set; } = 0; //
+        public double AutoLowerAccuracy { get; set; } = 0; //d
+        public double AutoUpperAccuracy { get; set; } = 0; //d
         
-        public double AverageSpeed { get; set; } = 0;
+        public double AverageSpeed { get; set; } = 0; // 
 
-        public double TotalLowerAccuracy { get; set; } = 0;
-        public double TotalUpperAccuracy { get; set; } = 0;
-        public double TotalClimbAttemptLength { get; set; } = 0;
+        public double TotalLowerAccuracy { get; set; } = 0; // d
+        public double TotalUpperAccuracy { get; set; } = 0; //d
+        public double TotalClimbAttemptLength { get; set; } = 0; //d
        
-        public double TotalClimbSuccessLength { get; set; } = 0;
-        public double ClimbHighSuccessLength { get; set; } = 0;
-        public double ClimbLowSuccessLength { get; set; } = 0;
-        public double ClimbMiddleSuccessLength { get; set; } = 0;
-        public double ClimbTraversalSuccessLength { get; set; } = 0;
+        public double TotalClimbSuccessLength { get; set; } = 0; // d
+        public double ClimbHighSuccessLength { get; set; } = 0; //d
+        public double ClimbLowSuccessLength { get; set; } = 0; //d
+        public double ClimbMiddleSuccessLength { get; set; } = 0; //d
+        public double ClimbTraversalSuccessLength { get; set; } = 0; //d
 
-        public double ClimbAttemptRate { get; set; } = 0;
-        public double ClimbSuccessRate { get; set; } = 0;
-        public double AverageClimbHeight { get; set; } = 0;
+        public double ClimbAttemptRate { get; set; } = 0; // dont need
+        public double ClimbSuccessRate { get; set; } = 0; //
+        public double AverageClimbHeight { get; set; } = 0; //
        
-        public double TeleopAccuracy { get; set; } = 0;
-        public double TeleopLowerAccuracy { get; set; } = 0;
-        public double TeleopUpperAccuracy { get; set; } = 0;
+        public double TeleopAccuracy { get; set; } = 0; //
+        public double TeleopLowerAccuracy { get; set; } = 0; //d
+        public double TeleopUpperAccuracy { get; set; } = 0; //d
         
-        public double AutoScoredCargo { get; set; } = 0;
-        public double AutoLowerScoredCargo { get; set; } = 0;
-        public double AutoUpperScoredCargo { get; set; } = 0;
+        public double AutoScoredCargo { get; set; } = 0; //
+        public double AutoLowerScoredCargo { get; set; } = 0; //d
+        public double AutoUpperScoredCargo { get; set; } = 0; //d
         
-        public double TotalScoredCargo { get; set; } = 0;
-        public double TotalLowerScoredCargo { get; set; } = 0;
-        public double TotalUpperScoredCargo { get; set; } = 0;
+        public double TotalScoredCargo { get; set; } = 0; //
+        public double TotalLowerScoredCargo { get; set; } = 0; //d
+        public double TotalUpperScoredCargo { get; set; } = 0; //d
         
-        public double TeleopScoredCargo { get; set; } = 0;
-        public double TeleopLowerScoredCargo { get; set; } = 0;
-        public double TeleopUpperScoredCargo { get; set; } = 0;
+        public double TeleopScoredCargo { get; set; } = 0; //
+        public double TeleopLowerScoredCargo { get; set; } = 0; //d
+        public double TeleopUpperScoredCargo { get; set; } = 0; //d
         
         public RobotTeam (int teamNumber)
         {
@@ -291,7 +291,7 @@ public class StatisticAnalysisViewModel
                 }
 
                 radialData.Values = radialValues.ToArray();
-                radialData.LineSmoothness = 1;
+                radialData.LineSmoothness = 0;
                 radialData.GeometrySize = 0;
                 radialData.Name = robotTeam.TeamNumber.ToString();
                 
